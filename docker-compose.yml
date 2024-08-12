@@ -1,0 +1,28 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+version: '3.4'
+
+services:
+  arcgateway:
+    image: arcgateway
+    build:
+      context: .
+      dockerfile: Arc.Gateway/Dockerfile
+    ports:
+      - 5011:5011
+
+  configurationapi:
+    image: configurationapi
+    build:
+      context: .
+      dockerfile: Configuration.API/Dockerfile
+    ports:
+      - 5012:5012
+
+  authenticationapi:
+    image: authenticationapi
+    build:
+      context: .
+      dockerfile: Authentication.API/Dockerfile
+    ports:
+      - 5013:5013
